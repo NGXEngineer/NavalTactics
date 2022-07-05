@@ -1,0 +1,5 @@
+# ignore files created by webpack
+./dist/main.js
+
+# ingore dependencies managed by npm
+./node_modules
