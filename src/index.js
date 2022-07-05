@@ -21,4 +21,6 @@ function animate() {
     renderer.render( scene, camera )
 }
 
+console.log('hi')
+
 animate()
