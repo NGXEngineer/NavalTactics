@@ -8,11 +8,17 @@ renderer.setSize( window.innerWidth, window.innerHeight )
 document.body.appendChild( renderer.domElement )
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 )
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } )
+const material = new THREE.MeshPhongMaterial( { color: 0x00ff00 } )
 const cube = new THREE.Mesh( geometry, material )
 scene.add( cube )
 
 camera.position.z = 5
+
+const color = 0xFFFFFF
+const intensity = 1
+const light = new THREE.DirectionalLight(color, intensity)
+light.position.set(-1, 2, 4)
+scene.add(light)
 
 function animate() {
     requestAnimationFrame( animate )
@@ -20,7 +26,5 @@ function animate() {
     cube.rotation.y += 0.01
     renderer.render( scene, camera )
 }
-
-console.log('hi')
 
 animate()
