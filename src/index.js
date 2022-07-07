@@ -1,30 +1,25 @@
 import * as THREE from 'three'
+import * as GRID from './css/js/grid'
+
+const canvas = document.querySelector('#c')
+const renderer = new THREE.WebGLRenderer({canvas})
+
+const fov = 75
+const aspect = 2
+const near = 0.1
+const far = 50
+const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
+camera.position.set(0, 5, -1)
+camera.up.set(0, 0, 1)
+camera.lookAt(0, 0, 0)
 
 const scene = new THREE.Scene()
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 )
 
-const renderer = new THREE.WebGLRenderer()
-renderer.setSize( window.innerWidth, window.innerHeight )
-document.body.appendChild( renderer.domElement )
+GRID.createGrid(scene, 5, 2)
 
-const geometry = new THREE.BoxGeometry( 1, 1, 1 )
-const material = new THREE.MeshPhongMaterial( { color: 0x00ff00 } )
-const cube = new THREE.Mesh( geometry, material )
-scene.add( cube )
-
-camera.position.z = 5
-
-const color = 0xFFFFFF
-const intensity = 1
-const light = new THREE.DirectionalLight(color, intensity)
-light.position.set(-1, 2, 4)
-scene.add(light)
-
-function animate() {
-    requestAnimationFrame( animate )
-    cube.rotation.x += 0.01
-    cube.rotation.y += 0.01
-    renderer.render( scene, camera )
+function render(time) {
+    renderer.render(scene, camera)
+    requestAnimationFrame(render)
 }
 
-animate()
+requestAnimationFrame(render)
