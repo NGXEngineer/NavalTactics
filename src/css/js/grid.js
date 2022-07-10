@@ -6,7 +6,8 @@ function createCube() {
     const boxDepth = 1
     const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth)
 
-    const material = new THREE.MeshBasicMaterial({color: 0x44aa88})
+    const col = Math.floor(Math.random() * 1000000) 
+    const material = new THREE.MeshBasicMaterial({color: col})
     const cube = new THREE.Mesh(geometry, material)
 
     return cube
