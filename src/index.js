@@ -18,7 +18,9 @@ controls.update()
 
 const scene = new THREE.Scene()
 
-scene.add(GRID.createGrid(10, 10))
+const field = GRID.createGrid(10, 10)
+field.position.set(-field.size.width/2 +0.5, 0, -field.size.depth/2 +0.5)
+scene.add(field)
 
 function resizeRendererToDisplaySize(renderer) {
     const canvas = renderer.domElement;

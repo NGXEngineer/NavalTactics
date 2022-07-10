@@ -27,6 +27,12 @@ function createGrid(x, y) {
         }
     }
 
+    field.size = {
+        width: x,
+        height: 0.25,
+        depth: y
+    }
+
     return field
 }
 
