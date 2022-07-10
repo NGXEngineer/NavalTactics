@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import { ObjectSpaceNormalMap } from 'three'
 
 function createCube() {
     const boxWidth = 1
@@ -15,16 +16,21 @@ function createCube() {
 
 // Todo: Ugly workaround to add elements to scene
 // Better to create own scene which represents the entire grid.
-function createGrid(scene, x, y) {
+function createGrid(x, y) {
+
+    const field = new THREE.Object3D()
+
     for(let col = 0; col < x; col++){
         for (let row = 0; row < y; row++) {
             let cube = createCube()
-            cube.position.x = col + 1
-            cube.position.z = row + 1
+            cube.position.x = col 
+            cube.position.z = row
 
-            scene.add(cube)
+            field.add(cube)
         }
     }
+
+    return field
 }
 
 export {
