@@ -14,8 +14,6 @@ function createCube() {
     return cube
 }
 
-// Todo: Ugly workaround to add elements to scene
-// Better to create own scene which represents the entire grid.
 function createGrid(x, y) {
 
     const field = new THREE.Object3D()
