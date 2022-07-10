@@ -17,6 +17,37 @@ const scene = new THREE.Scene()
 
 GRID.createGrid(scene, 5, 2)
 
+initCamera(camera)
+
+function initCamera(camera) {
+    document.getElementById('camera-up').addEventListener('click', event => moveCameraUp(camera))
+    document.getElementById('camera-down').addEventListener('click', event => moveCameraDown(camera))
+    document.getElementById('camera-right').addEventListener('click', event => moveCameraRight(camera))
+    document.getElementById('camera-left').addEventListener('click', event => moveCameraLeft(camera))
+    document.getElementById('camera-center').addEventListener('click', event => moveCameraCenter(camera))
+}
+
+function moveCameraUp(camera) {
+    console.log('up')
+}
+
+function moveCameraDown(camera) {
+    console.log('down')
+}
+
+function moveCameraLeft(camera) {
+    console.log('left')
+}
+
+function moveCameraRight(camera) {
+    console.log('right')
+}
+
+function moveCameraCenter(camera) {
+    console.log('center')
+}
+
+
 function resizeRendererToDisplaySize(renderer) {
     const canvas = renderer.domElement;
     const width = canvas.clientWidth;
