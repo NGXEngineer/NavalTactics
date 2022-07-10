@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import * as GRID from './css/js/grid'
+import * as GRID from './js/grid.js'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 
 const canvas = document.querySelector('#c')
@@ -17,7 +17,8 @@ controls.update()
 
 const scene = new THREE.Scene()
 
-scene.add(GRID.createGrid(5, 2))
+const field = GRID.createGrid(5, 2)
+scene.add(field)
 
 function resizeRendererToDisplaySize(renderer) {
     const canvas = renderer.domElement;

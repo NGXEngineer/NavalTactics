@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-import { ObjectSpaceNormalMap } from 'three'
 
 function createCube() {
     const boxWidth = 1
