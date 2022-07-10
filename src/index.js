@@ -10,15 +10,15 @@ const aspect = 2
 const near = 0.0001
 const far = 1000
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
-camera.position.set(0, 10, -1)
+camera.position.set(0, 8, -5)
+camera.lookAt(0, 0, 0)
 
 const controls = new OrbitControls(camera, renderer.domElement)
 controls.update()
 
 const scene = new THREE.Scene()
 
-const field = GRID.createGrid(5, 2)
-scene.add(field)
+scene.add(GRID.createGrid(10, 10))
 
 function resizeRendererToDisplaySize(renderer) {
     const canvas = renderer.domElement;
